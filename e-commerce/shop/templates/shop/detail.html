@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block body %}
+<div class="row row-cols-md-2 row-cols-1">
+	<div class="col">
+		<div class="ratio ratio-1x1 h-75">
+			<img
+				class="img-fluid object-fit-contain"
+				src="{{ product.image}}" />
+		</div>
+	</div>
+
+	<div class="col">
+		<h1>{{product.name}}</h1>
+		<hr />
+		<span class="badge bg-primary">{{product.category}}</span>
+		<p class="fs-4 fw-semibold">USD ${{product.price}}</p>
+		<hr />
+		<p class="fs-6">{{product.description}}</p>
+		<hr />
+		<button type="button" class="btn btn-warning">Add to cart</button>
+	</div>
+</div>
+{% endblock %}

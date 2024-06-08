@@ -1,0 +1,41 @@
+<!-- Modal Body -->
+<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+
+<form method="POST" action={% url 'food:delete_item' item.id %}>
+	{% csrf_token %}
+	<div
+		class="modal fade"
+		id="modalDelete"
+		tabindex="-1"
+		data-bs-backdrop="static"
+		data-bs-keyboard="false"
+		role="dialog"
+		aria-labelledby="modalTitleId"
+		aria-hidden="true">
+		<div
+			class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+			role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalTitleId">Are you sure?</h5>
+				</div>
+				<div class="modal-body">
+					<p>You are going to delete item: {{ item.name }}</p>
+				</div>
+				<div class="modal-footer">
+					<button
+						type="button"
+						class="btn btn-secondary"
+						data-bs-dismiss="modal">
+						Cancel
+					</button>
+					<button
+						class="btn btn-danger"
+						type="submit">
+						Delete
+				</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

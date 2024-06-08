@@ -1,0 +1,20 @@
+{% extends "food/base.html" %} {% block body %}
+{% include "food/delete-item.html" %}
+<div class="row container">
+	<div class="col ratio ratio-4x3">
+		<img src="{{ item.image }}" class="img-fluid rounded-2 object-fit-cover" alt="" />
+	</div>
+	<div class="col d-flex flex-column py-2">
+		<div class="h-100">
+			<h2>{{ item.name }}</h2>
+			<p>{{ item.description }}</p>
+			<p>$ {{ item.price }}</p>
+			
+		</div>
+		<div>
+			<a href={% url "food:update_item" item.id %} class="btn btn-success col">Edit</a>
+			<button class="btn btn-danger col" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete">Delete</button>
+		</div>
+	</div>
+</div>
+{% endblock %}
